@@ -1,11 +1,17 @@
 package com.agesadev.palmpay.model;
 
 import lombok.Data;
+import lombok.Getter;
+import lombok.Setter;
 import lombok.ToString;
+
+import java.util.List;
 
 
 @ToString
 @Data
+@Getter
+@Setter
 public class Coin {
     private String id;
     private String symbol;
@@ -31,8 +37,9 @@ public class Coin {
     private double atl;
     private double atl_change_percentage;
     private String atl_date;
-    private double roi;
     private String last_updated;
+    private String roi;
+
 
 
 }
