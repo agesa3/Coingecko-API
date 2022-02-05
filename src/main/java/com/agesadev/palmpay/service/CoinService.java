@@ -12,22 +12,28 @@ public class CoinService {
     @Autowired
     public CoinRepository coinRepository;
 
-    // save coin to db
-    public String saveCoin(Coin coin) {
-        coinRepository.save(coin);
-        return "Coin saved";
+    //get coin list
+    public List<Coin> getCoins() {
+        return coinRepository.findAll();
     }
 
-    public Iterable<Coin> save(List<Coin> coins) {
-        return (Iterable<Coin>) coinRepository.save((Coin) coins);
+    //save coin to db
+    public Coin saveCoin(Coin coin) {
+        return coinRepository.save(coin);
     }
 
-    //    get coin from db
-    public Coin getCoin(String id) {
+    //update coin
+    public Coin updateCoin(Coin coin) {
+        return coinRepository.save(coin);
+    }
+
+    //get coin by id
+    public Coin getCoinById(String id) {
         return coinRepository.findById(id).get();
     }
-    //get all coins from db
-    public Iterable<Coin> getAllCoins(){
-        return coinRepository.findAll();
+
+    //delete coin by id
+    public void deleteCoinById(String id) {
+        coinRepository.deleteById(id);
     }
 }

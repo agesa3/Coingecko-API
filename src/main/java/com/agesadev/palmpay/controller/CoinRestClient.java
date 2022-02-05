@@ -11,6 +11,7 @@ import org.springframework.http.ResponseEntity;
 import org.springframework.web.client.RestTemplate;
 
 import java.util.Arrays;
+import java.util.List;
 
 
 public class CoinRestClient {
@@ -45,7 +46,7 @@ public class CoinRestClient {
         ResponseEntity<Coin[]> response = restTemplate.exchange(GET_COINS_LIST, HttpMethod.GET, entity, Coin[].class);
         Coin[] coins = response.getBody();
         for (Coin coin : coins) {
-            coinService.saveCoin(coin);
+            coinService.save((List<Coin>) coin);
         }
     }
 
