@@ -5,6 +5,7 @@ import lombok.Getter;
 import lombok.Setter;
 import lombok.ToString;
 
+import javax.persistence.Embedded;
 import java.util.List;
 
 
@@ -38,7 +39,8 @@ public class Coin {
     private double atl_change_percentage;
     private String atl_date;
     private String last_updated;
-    private String roi;
+    @Embedded
+    private Roi roi;
 
 
 
